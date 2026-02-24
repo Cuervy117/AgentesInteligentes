@@ -50,7 +50,7 @@ class Aspiradora():
         # La aspiradora cuenta con bateria?
         self.bateriaDisponible = True
         # Meta a culplir, si se limpian 2 habitaciones, la aspiradora debera detenerse.
-        self.meta = 2
+        self.meta = 3
 
 # Metodos de la aspiradora
     # Se comprueba la bateria, en caso de no tener se apaga la aspiradora y termina el programa. Accion basica = detener
