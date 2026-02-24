@@ -21,6 +21,6 @@ Esta instrucción define el ciclo de vida y operación continua del agente, limi
 Para correr la simulación, ejecuta el archivo principal en la terminal:
 `python proyecto_aspiradora.py`
 
-![Caso de prueba 1](image-3.png)
+![Caso de prueba 1](img/Imagen2.png.png)
 
-![Caso de prueba 2](image-4.png)
+![Caso de prueba 2](img/Imagen1.png.png)
