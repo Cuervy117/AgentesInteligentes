@@ -80,7 +80,7 @@ class Aspiradora():
         if habitaciones[self.posicion].estado == HABITACION_SUCIA:
             self.aspirar()
         else:
-            print("Habitacion limpia, moviendo a siguiente habitacion...")
+            print(f"Habitacion {habitaciones[self.posicion].nombreHabitacion} limpia, moviendo a siguiente habitacion...")
             self.mover_sig_habitacion()
     
     # Funcion principal de la aspiradora, donde se repiten el proceso de decidir accion, hasta que la bateria se agote y se apague la aspiradora. Implementacion de WHILE BATERIA DISPONIBLE THEN {...}
@@ -105,8 +105,32 @@ def vidaReal():
     for habitacion in habitaciones:
         habitacion.ensuciarHabitacion()
 
+def casoPrueba1():
+    global habitaciones
+    # Se crean dos habitaciones, una sucia y otra limpia, para verificar que la aspiradora limpie la sucia y se mueva a la limpia.
+    habitaciones[0].estado = HABITACION_SUCIA
+    habitaciones[1].estado = HABITACION_LIMPIA
+    aspiradora = Aspiradora()
+    aspiradora.posicion = 0 # Iniciamos en la habitacion sucia
+    aspiradora.decidir_accion() # Se espera que limpie la habitacion A
+    aspiradora.decidir_accion() # Se espera que se mueva a la habitacion B
+
+def casoPrueba2():
+    global habitaciones
+    # Se crean dos habitaciones limpias, para verificar que la aspiradora se mueva a ambas sin limpiar.
+    habitaciones[0].estado = HABITACION_LIMPIA
+    habitaciones[1].estado = HABITACION_LIMPIA
+    aspiradora = Aspiradora()
+    aspiradora.posicion = 0 # Iniciamos en la habitacion A
+    aspiradora.decidir_accion() # Se espera que se mueva a la habitacion B
+    aspiradora.decidir_accion() # Se espera que se mueva a la habitacion A
+    
 # Metodo principal, donde se crea una instancia de la aspiradora y se llama a su metodo repetir.     
 def main():
     aspiradora = Aspiradora()
     aspiradora.repetir()
-main()
+#main()
+print("Ejecutando caso de prueba 1:")
+casoPrueba1()
+print("\nEjecutando caso de prueba 2:")
+casoPrueba2()
